@@ -85,9 +85,9 @@ class OpenCC extends Plugin
 			}
 			</script>";
 
-            print_hidden("op", "pluginhandler");
-            print_hidden("method", "save");
-            print_hidden("plugin", "opencc");
+            print \Controls\hidden_tag("op", "pluginhandler");
+            print \Controls\hidden_tag("method", "save");
+            print \Controls\hidden_tag("plugin", "opencc");
 
             $opencc_API_server = $this->host->get($this, "opencc_API_server");
 
@@ -97,7 +97,8 @@ class OpenCC extends Plugin
 
             print "<p>Read the <a href='http://ttrss.henry.wang/#opencc-simp-trad-chinese-conversion'>documents</a>.</p>";
 
-            print_button("submit", __("Save"), "class='alt-primary'");
+            print "<button dojoType=\"dijit.form.Button\" type=\"submit\" class=\"alt-primary\">".__('Save')."</button>";
+
             print "</form>";
 
             $enabled_feeds = $this->host->get($this, "enabled_feeds");
