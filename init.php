@@ -75,11 +75,8 @@ class OpenCC extends Plugin
 			evt.preventDefault();
 			if (this.validate()) {
 				console.log(dojo.objectToQuery(this.getValues()));
-				new Ajax.Request('backend.php', {
-					parameters: dojo.objectToQuery(this.getValues()),
-					onComplete: function(transport) {
-						Notify.info(transport.responseText);
-					}
+				xhrPost(\"backend.php\", this.getValues(), (transport) => {
+					Notify.info(transport.responseText);
 				});
 				//this.reset();
 			}
